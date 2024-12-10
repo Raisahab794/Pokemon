@@ -1,10 +1,8 @@
-// script.js
 const BASE_URL = 'https://pokeapi.co/api/v2';
 const pokemonContainer = document.getElementById('pokemon-container');
 const errorDisplay = document.getElementById('error');
 const loadingDisplay = document.getElementById('loading');
 
-// Load first 50 Pokémon
 async function loadInitialPokemon() {
     try {
         showLoading();
@@ -20,7 +18,6 @@ async function loadInitialPokemon() {
     }
 }
 
-// Fetch individual Pokémon data
 async function fetchPokemonData(url) {
     try {
         const response = await fetch(url);
@@ -33,7 +30,6 @@ async function fetchPokemonData(url) {
     }
 }
 
-// Display Pokémon card
 function displayPokemon(pokemon) {
     const card = document.createElement('div');
     card.className = 'pokemon-card';
@@ -45,7 +41,6 @@ function displayPokemon(pokemon) {
     pokemonContainer.appendChild(card);
 }
 
-// Search Pokémon
 async function searchPokemon() {
     const searchInput = document.getElementById('search').value.toLowerCase();
     if (!searchInput) return;
@@ -66,19 +61,13 @@ async function searchPokemon() {
     }
 }
 
-// Reset to show all Pokémon
 function resetToAll() {
-    // Clear search input
     document.getElementById('search').value = '';
-    // Clear current display
     pokemonContainer.innerHTML = '';
-    // Hide any errors
     hideError();
-    // Reload initial Pokémon
     loadInitialPokemon();
 }
 
-// Utility functions
 function showError(message) {
     errorDisplay.style.display = 'block';
     errorDisplay.textContent = message;
@@ -97,5 +86,4 @@ function hideLoading() {
     loadingDisplay.style.display = 'none';
 }
 
-// Initialize the application
 window.onload = loadInitialPokemon;
