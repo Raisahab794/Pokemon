@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search Pokémon...">
+            <button onclick="searchPokemon()">Search</button>
+            <button onclick="resetToAll()">Show All</button>
+        </div>
+        <div id="error" class="error"></div>
+        <div id="loading" class="loading">Loading...</div>
+        <div id="pokemon-container" class="pokemon-grid"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

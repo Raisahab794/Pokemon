@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokémon API Project Presentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #1a1a1a;
+            color: white;
+        }
+        .slide {
+            height: 100vh;
+            padding: 40px;
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        .code {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide active" id="slide1">
+        <h1>Pokémon API Project</h1>
+        <h3>Implementation & Challenges</h3>
+        <ul>
+            <li>Built with HTML, CSS, JavaScript</li>
+            <li>Uses PokéAPI (pokeapi.co)</li>
+            <li>Features: Display 50 Pokémon, Search functionality</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide2">
+        <h2>Approach</h2>
+        <ul>
+            <li>Frontend-only implementation</li>
+            <li>Responsive design with CSS Grid</li>
+            <li>Async/Await for API calls</li>
+            <li>Error handling for API failures</li>
+            <li>Search functionality with real-time results</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide3">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Display first 50 Pokémon in grid layout</li>
+            <li>Search by Pokémon name</li>
+            <li>Error handling for:
+                <ul>
+                    <li>API failures</li>
+                    <li>Network issues</li>
+                    <li>Pokémon not found</li>
+                </ul>
+            </li>
+            <li>Loading states</li>
+            <li>Responsive design</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide4">
+        <h2>Challenges & Solutions</h2>
+        <ul>
+            <li>Challenge: Multiple API calls for Pokémon details
+                <br>Solution: Used Promise.all for parallel requests</li>
+            <li>Challenge: Error handling
+                <br>Solution: Implemented try-catch blocks with user feedback</li>
+            <li>Challenge: Search functionality
+                <br>Solution: Added reset option to show all Pokémon</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide5">
+        <h2>Results & Demo</h2>
+        <ul>
+            <li>Successfully implemented all required features</li>
+            <li>Responsive design works on all devices</li>
+            <li>Quick loading with efficient API usage</li>
+            <li>User-friendly interface with error feedback</li>
+        </ul>
+    </div>
+
+    <div class="navigation">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function showSlide(n) {
+            document.querySelector('.slide.active').classList.remove('active');
+            document.getElementById('slide' + n).classList.add('active');
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
